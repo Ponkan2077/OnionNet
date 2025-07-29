@@ -2,7 +2,7 @@
 
 **OnionNet** is an intelligent irrigation management system powered by Artificial Intelligence (AI) and Internet of Things (IoT) technologies, designed specifically to optimize water use in onion farming.
 
-The system gathers real-time environmental data — such as soil moisture, temperature, and humidity — through a network of sensors and uses machine learning algorithms to predict and automate irrigation schedules with high precision.
+The system gathers real-time environmental data, such as soil moisture, temperature, and humidity, through a network of sensors and uses machine learning algorithms to predict and automate irrigation schedules with high precision.
 
 By making data-driven decisions, OnionNet reduces water consumption, enhances crop yield, and supports climate-resilient agriculture. Farmers can monitor and control irrigation remotely via a mobile/web interface, receive smart alerts, and adjust settings based on crop stages or weather forecasts.
 
@@ -21,7 +21,7 @@ By making data-driven decisions, OnionNet reduces water consumption, enhances cr
 
 ## 💡 Why OnionNet?
 
-Because every drop counts — **OnionNet** brings smart precision to every onion field.
+Because every drop counts **OnionNet** brings smart precision to every onion field.
 
 ---
 
