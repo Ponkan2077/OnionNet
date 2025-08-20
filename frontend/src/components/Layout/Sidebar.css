@@ -4,13 +4,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-left: 15px;
 }
 
 .sidebar ul {
   list-style: none; /* remove bullets */
-  padding-left: 0;  /* remove left indent from ul */
-  margin: 0;
   display: flex; /* use flexbox for layout */
   flex-direction: column; /* stack items vertically */
   gap: 20px; /* space between items */
@@ -28,19 +25,22 @@
   color: white; /* make Lucide icons white */
 }
 
-@media (max-width: 1110px) {
-  .sidebar a {
-    font-size: 0.9rem !important;
+@media (max-width: 900px) {
+  .sidbar a {
+    font-size: 0.68rem !important;
   }
 }
 
 @media (max-width: 767px) {
 
   .sidebar ul {
-    gap:10px;
+    gap:15px;
   }
+}
+
+@medi (max-width: 362px) {
 
   .sidebar a {
-    font-size: 0.6rem !important;
+    font-size: 0.4rem !important;
   }
 }

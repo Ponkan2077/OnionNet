@@ -1,20 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MainContent from './MainContent';
 
 const Layout = ({children}) => {
+
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const toggleSidebar = () => setIsOpen(!isOpen)
+
     return (
         <div className="container-fluid">
             <div className="row">
                 <div 
-                    className="col-md-3 vh-100 d-none d-md-block bg-black text-white px-1 py-2"
-                    style={{ maxWidth: '290px', minWidth: '180px'}}
+                    className={`col-8 col-md-4 vh-100 d-md-block bg-black text-white px-md-1 py-md-2 ${isOpen ? "d-block" : "d-none"}`}
+                    style={{ maxWidth: '290px'}}
                 >
-                    <Sidebar />
+                    {/* Sidebar for Desktop */}
+                    <Sidebar isOpen={true} toggleSidebar={toggleSidebar}/>
+
                 </div>
-                <div className="col-md-9">
-                    <Navbar />
+                <div className="col-md-8">
+                    <Navbar toggleSidebar={toggleSidebar}/>
                     <MainContent />
                 </div>
             </div>
