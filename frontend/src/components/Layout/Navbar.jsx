@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { AlignLeft } from 'lucide-react';
+
 
 const Navbar = () => {
     return (
-        <p>Iam a Navbar</p>
+        <>  
+            <AlignLeft className="inline-block w-4 h-4 mr-2" />
+            <p>I am the NavBar</p>
+        </>
     );
 }
 

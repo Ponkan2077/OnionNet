@@ -13,7 +13,7 @@
   margin: 0;
   display: flex; /* use flexbox for layout */
   flex-direction: column; /* stack items vertically */
-  gap: 10px; /* space between items */
+  gap: 20px; /* space between items */
 }
 
 .sidebar a {
@@ -28,8 +28,19 @@
   color: white; /* make Lucide icons white */
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1110px) {
   .sidebar a {
-    font-size: 0.75rem;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .sidebar ul {
+    gap:10px;
+  }
+
+  .sidebar a {
+    font-size: 0.6rem !important;
   }
 }

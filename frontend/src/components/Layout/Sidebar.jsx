@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 // Icons
 import { LayoutDashboard } from 'lucide-react';
@@ -17,34 +17,34 @@ const Sidebar = () => {
         <> 
             <span className="fw-bold fs-1 ms-3" > LOGO </span>
             <nav className="sidebar">
-                <span>Menu</span>
-                <ul className='ms-2'>
+                <span className='mt-4'>Menu</span>
+                <ul className='ms- p-2'>
                     <li>
-                        <Link to="/Dashboard"className='fs-lg-6'><LayoutDashboard className="inline-block w-4 h-4 mr-2" /> Dashboard </Link>
+                        <NavLink to="/Dashboard"className='fs-6'><LayoutDashboard className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  /> Dashboard </NavLink>
                     </li>
                     <li>
-                        <Link to="/Device_And_SensorManagement" className='fs-lg-6'><Cpu className="inline-block w-4 h-4 mr-2" />Device & Sensor Management</Link>
+                        <NavLink to="/Device_Management" className='fs-6' ><Cpu className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }} /> Device Management</NavLink>
                     </li>
                     <li>
-                        <Link to="/DataHistory_And_Report" className='fs-lg-6'><DatabaseBackup className="inline-block w-4 h-4 mr-2" />Data History & Report</Link>
+                        <NavLink to="/DataHistory_And_Report" className='fs-6'><DatabaseBackup className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />Data History & Report</NavLink>
                     </li>
                     <li>
-                        <Link to="/Alerts_And_Notifications" className='fs-lg-6'><Bell className="inline-block w-4 h-4 mr-2" />Alerts & Notifications</Link>
+                        <NavLink to="/Alerts_And_Notifications" className='fs-6'><Bell className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />Alerts & Notifications</NavLink>
                     </li>
                     <li>
-                        <Link to="/Weather" className='fs-lg-6' ><Cloudy className="inline-block w-4 h-4 mr-2" />Weather</Link>
+                        <NavLink to="/Weather" className='fs-6' ><Cloudy className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />Weather</NavLink>
                     </li>
                     <li>
-                        <Link to="/Settings"className='fs-lg-6' ><Settings2 className="inline-block w-4 h-4 mr-2" />Settings</Link>
+                        <NavLink to="/Settings"className='fs-6' ><Settings2 className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />Settings</NavLink>
                     </li>
                     <li>
-                        <Link to="/OnionHealth" className='fs-lg-6'><Sprout className="inline-block w-4 h-4 mr-2" />Onion Health</Link>
+                        <NavLink to="/OnionHealth" className='fs-6'><Sprout className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />Onion Health</NavLink>
                     </li>
                 </ul>
-                <span>Others</span>
-                <ul className='ms-3'>
+                <span className='mt-5'>Others</span>
+                <ul className='ms-2 p-2'>
                     <li>
-                        <Link to="/UserManagement" className='fs-lg-6' ><User className="inline-block w-4 h-4 mr-2" />User Management</Link>
+                        <NavLink to="/UserManagement" className='fs-6' ><User className="inline-block align-text-bottom me-2" style={{ width: "1.4em", height: "1.4em" }}  />User Management </NavLink>
                     </li>
                 </ul>
             </nav>
