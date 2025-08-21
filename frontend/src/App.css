@@ -1,5 +1,7 @@
 :root {
-  --primary-accent-color: #8a351d;
+  --primary-accent-color: #521C20;
+  --primary-accent-hover: #6b252a;
+  --primary-accent-active: #3d1417;
 }
 
 body {
