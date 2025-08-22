@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import Item  # assuming your model is called Item
+from .models import Sensor, Reading
 
-class ItemSerializer(serializers.ModelSerializer):
+class SensorSerializer(Serializers.ModelSerializer):
     class Meta:
-        model = Item
-        fields = '__all__'
+        model = Sensor
+        fields = ['id', 'name', 'type', 'location', 'status', 'unit', 'added_at', 'slug']
+
+class ReadingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reading
+        fields = ['id', 'sensor', 'value', 'timestamp']
