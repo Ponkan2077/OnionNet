@@ -36,7 +36,7 @@ const Sidebar = ({toggleSidebar, isIconsOnly}) => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/DataHistory_And_Report" className='fs-6'>
+                            <NavLink to="/Data_History_And_Report" className='fs-6'>
                                 <DatabaseBackup className="inline-block align-text-bottom me-md-2 me-1" style={{ width: "1.4em", height: "1.4em" }}  />
                                 <span>Data History & Report</span>
                             </NavLink>
@@ -60,7 +60,7 @@ const Sidebar = ({toggleSidebar, isIconsOnly}) => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/OnionHealth" className='fs-6'>
+                            <NavLink to="/Onion_Health" className='fs-6'>
                                     <Sprout className="inline-block align-text-bottom me-md-2 me-1" style={{ width: "1.4em", height: "1.4em" }}  />
                                     <span>Onion Health</span>
                                 </NavLink>
@@ -69,7 +69,7 @@ const Sidebar = ({toggleSidebar, isIconsOnly}) => {
                     <span className='mt-5'>Others</span>
                     <ul className='ms-md-2'>
                         <li>
-                            <NavLink to="/UserManagement" className='fs-6' >
+                            <NavLink to="/User_Management" className='fs-6' >
                                 <User className="inline-block align-text-bottom me-md-2 me-1" style={{ width: "1.4em", height: "1.4em" }}  />
                                 <span>User Management</span>
                             </NavLink>

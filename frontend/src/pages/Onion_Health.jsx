@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OnionHealth = () => {
+const Onion_Health = () => {
     return (
         <div>
             <h1>I am the OnionHealth</h1>
@@ -8,4 +8,4 @@ const OnionHealth = () => {
     )
 }
 
-export default OnionHealth;
+export default Onion_Health;

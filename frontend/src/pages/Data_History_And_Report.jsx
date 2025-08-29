@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DataHistory_And_Report = () => {
+const Data_History_And_Report = () => {
     return (
         <div>
             <h1>I am the DataHistory_And_Report</h1>
@@ -8,4 +8,4 @@ const DataHistory_And_Report = () => {
     )
 }
 
-export default DataHistory_And_Report;
+export default Data_History_And_Report;
