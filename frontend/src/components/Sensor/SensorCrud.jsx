@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getSensors, createSensor, updateSensor, deleteSensor } from "../api";
+import { GetSensors, CreateSensor, UpdateSensor, DeleteSensor } from "../../api";
 import SensorForm from "./SensorForm";
 import SensorList from "./SensorList";
 
@@ -13,7 +13,7 @@ function SensorCRUD() {
 
   const fetchSensors = async () => {
     try {
-      const res = await getSensors();
+      const res = await GetSensors();
       setSensors(res.data);
     } catch (err) {
       console.error("Error fetching sensors:", err);
@@ -23,10 +23,10 @@ function SensorCRUD() {
   const handleSubmit = async (form) => {
     try {
       if (editingSensor) {
-        await updateSensor(editingSensor.id, form);
+        await UpdateSensor(editingSensor.id, form);
         setEditingSensor(null);
       } else {
-        await createSensor(form);
+        await CreateSensor(form);
       }
       fetchSensors();
     } catch (err) {
@@ -40,7 +40,7 @@ function SensorCRUD() {
 
   const handleDelete = async (id) => {
     try {
-      await deleteSensor(id);
+      await DeleteSensor(id);
       fetchSensors();
     } catch (err) {
       console.error("Error deleting sensor:", err);
