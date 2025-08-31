@@ -1,51 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useForm, useFieldArray } from "react-hook-form";
+import { fetchSensorFields } from "../../api";
 
-const SensorForm = ({ onSubmit, editingSensor}) => {
-    const [form, setForm] = useState({
-        name: "",
-        type: "",
-        location: "",
-        unit: "",
-        status: "offline",
+const SensorForm = ({ onSubmit, editingSensor }) => {
+  const { control, register, handleSubmit, reset } = useForm({
+    defaultValues: { fields: [] }
+  });
+
+  const { fields, replace } = useFieldArray({
+    control,
+    name: "fields"
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  // Fetch fields from backend
+  useEffect(() => {
+    const loadFields = async () => {
+      try {
+        const res = await fetchSensorFields();
+        const apiFields = res.data.map(field => ({
+          ...field,
+          value: editingSensor ? editingSensor[field.name] || "" : ""
+        }));
+        replace(apiFields); // inject into useFieldArray
+      } catch (err) {
+        console.error("Error fetching fields:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadFields();
+  }, [editingSensor, replace]);
+
+  const onSubmitHandler = (data) => {
+    // transform data.fields [{name, value}] → {name: value}
+    const payload = {};
+    data.fields.forEach(f => {
+      payload[f.name] = f.value;
     });
+    console.log("🚀 Submitting payload:", payload);
+    onSubmit(payload);
+    reset({ fields: [] });
+  };
 
-    // When editing sensor changes, update form state
-    useEffect(() => {
-        if (editingSensor) {
-            setForm(editingSensor);
-        }
-    }, [editingSensor]);
+  if (loading) return <p>Loading form...</p>;
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name] : e.target.value});
-    };
+  return (
+    <form onSubmit={handleSubmit(onSubmitHandler)} className="p-3 border rounded">
+      {fields.map((field, index) => (
+        <div key={field.id} className="mb-3">
+          <label className="form-label">{field.label}</label>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit(form);
-        setForm({
-            name: "",
-            type: "",
-            location: "",
-            unit: "",
-            status: "offline",
-        });
-    };
+          {/* Text / number input */}
+          {field.type !== "select" && (
+            <input
+              type={field.type || "text"}
+              className="form-control"
+              {...register(`fields.${index}.value`, { required: field.required })}
+              defaultValue={field.value}
+            />
+          )}
 
-    return (
-    <form onSubmit={handleSubmit} className="sensor-form">
-      <input name="name" value={form.name} onChange={handleChange} placeholder="Name" required />
-      <input name="type" value={form.type} onChange={handleChange} placeholder="Type" required />
-      <input name="location" value={form.location} onChange={handleChange} placeholder="Location" required />
-      <input name="unit" value={form.unit} onChange={handleChange} placeholder="Unit" required />
-      <select name="status" value={form.status} onChange={handleChange}>
-        <option value="offline">Offline</option>
-        <option value="online">Online</option>
-      </select>
-      <button type="submit">{editingSensor ? "Update" : "Add"} Sensor</button>
+          {/* Select input */}
+          {field.type === "select" && (
+            <select
+              className="form-select"
+              {...register(`fields.${index}.value`, { required: field.required })}
+              defaultValue={field.value}
+            >
+              {field.options?.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          )}
+
+          {/* Hidden name so we know what field this is */}
+          <input type="hidden" {...register(`fields.${index}.name`)} defaultValue={field.name} />
+        </div>
+      ))}
+
+      <button type="submit" className="btn btn-primary">
+        {editingSensor ? "Update Sensor" : "Add Sensor"}
+      </button>
     </form>
   );
-
-}
+};
 
 export default SensorForm;

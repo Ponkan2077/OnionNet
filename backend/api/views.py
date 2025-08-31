@@ -1,11 +1,23 @@
 # For CRUS operations
 from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
 from .models import Sensor, Reading
 from .serializers import SensorSerializer, ReadingSerializer
+
 
 class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
+
+    def create(self, request, *args, **kwargs):
+        print("📥 Incoming request.data:", request.data)  # log frontend payload
+        serializer = self.get_serializer(data=request.data)
+        if not serializer.is_valid():
+            print("❌ Validation errors:", serializer.errors)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        self.perform_create(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class ReadingViewSet(viewsets.ModelViewSet):
     queryset = Reading.objects.all()
@@ -48,7 +60,7 @@ class SensorFieldsView(APIView):
 
             if field.choices:
                 field_data["type"] = "select"
-                field_data["choices"] = [
+                field_data["options"] = [
                     {"value": val, "label" : label}
                     for val, label in field.choices
                 ] 

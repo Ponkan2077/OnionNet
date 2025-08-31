@@ -11,14 +11,22 @@ class Sensor(models.Model):
     slug = models.SlugField(max_length = 100, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
+        # Check if this is a new instance
         creating = self.pk is None
-
-        super().save(*args, **kwargs)
-
-        if creating and not self.slug:
-            base = slugify(f"{self.name}-{self.type}-{self.location}")
-            self.slug = f"{base}-{self.pk}"
-            super().save(update_fields=['slug'])
+        
+        # Save first to get the ID
+        if creating:
+            super().save(*args, **kwargs)
+            
+            # Generate slug after saving to have access to pk
+            if not self.slug:
+                base_slug = slugify(f"{self.name}-{self.type}-{self.location}")
+                self.slug = f"{base_slug}-{self.pk}"
+                # Update only the slug field to avoid infinite recursion
+                super().save(update_fields=['slug'])
+        else:
+            # For updates, just save normally
+            super().save(*args, **kwargs)
     
     def __str__ (self):
         return f"{self.name} ({self.type})"
