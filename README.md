@@ -12,9 +12,7 @@ By making data-driven decisions, OnionNet reduces water consumption, enhances cr
 
 - 🤖 **AI-powered irrigation decision-making**  
 - 🌱 **Real-time soil and environmental monitoring**  
-- 📡 **Wireless sensor network with cloud connectivity**  
-- 🔔 **Custom alerts and remote dashboard access**  
-- 🧅 **Designed specifically for onion growth cycles**  
+- 🔔 **Custom alerts and remote dashboard access**   
 - 🚀 **Scalable and adaptable to other crops**
 
 ---
