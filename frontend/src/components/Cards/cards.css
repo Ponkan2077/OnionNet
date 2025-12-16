@@ -1,0 +1,55 @@
+/* Metric Card Styles */
+.metric-card {
+  flex: 1 1 250px; 
+  width: auto;
+  margin: 0 auto;
+  padding: 28px;
+  background-color: white;
+  border-radius: 24px;
+  border: 2px solid #d1d5db;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.metric-card-title {
+  color: #9ca3af;
+  font-size: 18px;
+  margin-bottom: 16px;
+  margin: 0 0 16px 0;
+}
+
+.metric-card-value {
+  font-size: 40px;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+}
+
+.metric-card-change-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.metric-card-change {
+  font-weight: 600;
+}
+
+.metric-card-change.positive {
+  color: #10b981;
+}
+
+.metric-card-change.negative {
+  color: #ef4444;
+}
+
+.metric-card-compare {
+  color: #9ca3af;
+}

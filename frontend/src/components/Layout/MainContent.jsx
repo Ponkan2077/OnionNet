@@ -1,11 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import IrrigationAnalytics from '../Charts/charts.jsx';  // <-- IMPORT
 
-const MainContent = ({children}) => {
+const MainContent = () => {
     return (
-        <main className="flex-grow-1 overflow-auto" >
+        <main className="flex-grow-1 overflow-auto">
             <Outlet />
-            <p>I am the Main Content Area</p>
+
+            <IrrigationAnalytics />
+
         </main>
     );
 }

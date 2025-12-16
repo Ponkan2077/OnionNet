@@ -35,7 +35,7 @@ const Layout = ({children}) => {
                     ${isOpen ? "bg-dark bg-opacity-50": ""} 
                     ${isIconsOnly ? "col-md-11" : "col-md-8"}`}
                 >
-                    <Navbar toggleSidebar={toggleSidebar} toggleIconsOnly={toggleIconsOnly} />
+                    <Navbar toggleSidebar={toggleSidebar} toggleIconsOnly={toggleIconsOnly} isOpen={isOpen} isIconsOnly={isIconsOnly} />
                     <MainContent />
                 </div>
             </div>

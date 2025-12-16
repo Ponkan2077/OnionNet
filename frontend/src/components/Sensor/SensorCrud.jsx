@@ -49,7 +49,6 @@ function SensorCRUD() {
 
   return (
     <div>
-      <h2>Sensor Management</h2>
       <SensorForm onSubmit={handleSubmit} editingSensor={editingSensor} />
       <SensorList sensors={sensors} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
